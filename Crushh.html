@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Love Date ❤️</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+html,body{
+    margin:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#090014;
+    color:white;
+}
+
+/* ================= BACKGROUND ================= */
+
+.background{
+    position:fixed;
+    inset:0;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            #711653,
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 10% 90%,
+            #28135e,
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #080014,
+            #25052f,
+            #090018
+        );
+
+    overflow:hidden;
+}
+
+.aurora{
+    position:absolute;
+
+    width:150%;
+    height:150%;
+
+    left:-25%;
+    top:-25%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(255,40,120,.25),
+            transparent 45%
+        );
+
+    filter:blur(45px);
+
+    animation:
+        auroraMove 8s ease-in-out infinite alternate;
+}
+
+@keyframes auroraMove{
+
+    from{
+        transform:rotate(0deg) scale(1);
+    }
+
+    to{
+        transform:rotate(15deg) scale(1.2);
+    }
+}
+
+/* ================= STARS ================= */
+
+.star{
+    position:fixed;
+
+    width:3px;
+    height:3px;
+
+    border-radius:50%;
+
+    background:white;
+
+    box-shadow:
+        0 0 10px white;
+
+    animation:
+        twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+
+    from{
+        opacity:.15;
+        transform:scale(.5);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1.5);
+    }
+}
+
+/* ================= CARD ================= */
+
+.screen{
+    position:relative;
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:5;
+}
+
+.card{
+    width:90%;
+    max-width:420px;
+
+    padding:35px 28px;
+
+    text-align:center;
+
+    border-radius:30px;
+
+    background:
+        rgba(255,255,255,.09);
+
+    border:
+        1px solid rgba(255,255,255,.2);
+
+    backdrop-filter:
+        blur(25px);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.5),
+        inset 0 0 30px rgba(255,255,255,.04);
+
+    animation:
+        floatingCard 5s ease-in-out infinite;
+}
+
+@keyframes floatingCard{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+}
+
+/* ================= HEART ================= */
+
+.heart-container{
+    width:100px;
+    height:100px;
+
+    margin:auto;
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+}
+
+.heart{
+    position:relative;
+
+    width:65px;
+    height:65px;
+
+    background:#ff174f;
+
+    transform:rotate(-45deg);
+
+    border-radius:8px 0 8px 0;
+
+    box-shadow:
+        0 0 15px #ff174f,
+        0 0 35px #ff174f,
+        0 0 70px #ff4f81;
+
+    animation:heartbeat 1.2s infinite;
+}
+
+.heart::before,
+.heart::after{
+    content:"";
+
+    position:absolute;
+
+    width:65px;
+    height:65px;
+
+    background:#ff174f;
+
+    border-radius:50%;
+}
+
+.heart::before{
+    top:-32px;
+    left:0;
+}
+
+.heart::after{
+    top:0;
+    left:32px;
+}
+
+@keyframes heartbeat{
+
+    0%,100%{
+        transform:rotate(-45deg) scale(1);
+    }
+
+    50%{
+        transform:rotate(-45deg) scale(1.15);
+    }
+}
+
+/* ================= TEXT ================= */
+
+h1{
+    font-size:25px;
+
+    margin:10px 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            white,
+            #ff91b1,
+            white
+        );
+
+    background-size:200%;
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+
+    animation:textShine 3s infinite;
+}
+
+@keyframes textShine{
+
+    to{
+        background-position:200%;
+    }
+}
+
+.subtitle{
+    color:#e8c9dc;
+
+    margin-bottom:25px;
+}
+
+/* ================= INPUT ================= */
+
+input{
+    width:100%;
+
+    padding:15px;
+
+    margin:8px 0;
+
+    border-radius:14px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.25);
+
+    background:
+        rgba(255,255,255,.08);
+
+    color:white;
+
+    outline:none;
+
+    font-size:16px;
+
+    transition:.3s;
+}
+
+input::placeholder{
+    color:#d7b6ca;
+}
+
+input:focus{
+    border-color:#ff4f81;
+
+    box-shadow:
+        0 0 20px
+        rgba(255,79,129,.5);
+
+    transform:scale(1.02);
+}
+
+/* ================= BUTTON ================= */
+
+button{
+    width:100%;
+
+    padding:16px;
+
+    margin-top:16px;
+
+    border:none;
+
+    border-radius:15px;
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff174f,
+            #ff4f81,
+            #c9184a
+        );
+
+    background-size:200%;
+
+    box-shadow:
+        0 10px 30px
+        rgba(255,23,79,.45);
+
+    animation:
+        buttonShine 3s infinite;
+
+    transition:.3s;
+}
+
+@keyframes buttonShine{
+
+    50%{
+        background-position:100%;
+    }
+}
+
+button:hover{
+    transform:
+        translateY(-3px)
+        scale(1.02);
+}
+
+button:active{
+    transform:scale(.96);
+}
+
+/* ================= MESSAGE ================= */
+
+#message{
+    min-height:20px;
+    margin-top:15px;
+}
+
+/* ================= CINEMATIC ================= */
+
+#cinematic{
+    position:fixed;
+
+    inset:0;
+
+    z-index:100;
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #64154d,
+            #07000c 75%
+        );
+}
+
+#cinematic.show{
+    display:flex;
+}
+
+/* ================= TWO HEARTS ================= */
+
+.two-hearts{
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:80px;
+}
+
+.fly-heart{
+    font-size:75px;
+
+    filter:
+        drop-shadow(
+            0 0 15px #ff174f
+        )
+        drop-shadow(
+            0 0 35px #ff4f81
+        );
+}
+
+.left-heart{
+    animation:
+        leftHeart 1.5s
+        cubic-bezier(.2,.8,.3,1)
+        forwards;
+}
+
+.right-heart{
+    animation:
+        rightHeart 1.5s
+        cubic-bezier(.2,.8,.3,1)
+        forwards;
+}
+
+@keyframes leftHeart{
+
+    from{
+        transform:
+            translateX(-250px)
+            scale(.3)
+            rotate(-30deg);
+
+        opacity:0;
+    }
+
+    to{
+        transform:
+            translateX(0)
+            scale(1.15)
+            rotate(0);
+
+        opacity:1;
+    }
+}
+
+@keyframes rightHeart{
+
+    from{
+        transform:
+            translateX(250px)
+            scale(.3)
+            rotate(30deg);
+
+        opacity:0;
+    }
+
+    to{
+        transform:
+            translateX(0)
+            scale(1.15)
+            rotate(0);
+
+        opacity:1;
+    }
+}
+
+/* ================= REVEAL ================= */
+
+#reveal{
+    display:none;
+
+    text-align:center;
+
+    animation:
+        revealAnimation 1.5s
+        cubic-bezier(.2,.8,.3,1);
+}
+
+@keyframes revealAnimation{
+
+    0%{
+        opacity:0;
+
+        transform:
+            scale(.2)
+            translateY(40px);
+
+        filter:blur(20px);
+    }
+
+    60%{
+        transform:
+            scale(1.1)
+            translateY(0);
+    }
+
+    100%{
+        opacity:1;
+
+        transform:scale(1);
+
+        filter:blur(0);
+    }
+}
+
+.special{
+    font-size:13px;
+
+    letter-spacing:5px;
+
+    color:#e9cadd;
+}
+
+.names{
+    margin-top:15px;
+
+    font-size:29px;
+
+    font-weight:bold;
+
+    color:#ff9fba;
+
+    text-shadow:
+        0 0 15px #ff174f,
+        0 0 35px #ff4f81;
+}
+
+.label{
+    margin-top:30px;
+
+    color:#e9ccdf;
+
+    letter-spacing:3px;
+}
+
+.date{
+    margin-top:10px;
+
+    font-size:34px;
+
+    font-weight:bold;
+
+    color:white;
+
+    text-shadow:
+        0 0 10px #ff174f,
+        0 0 30px #ff4f81,
+        0 0 70px #ff9fba;
+
+    animation:datePulse 2s infinite;
+}
+
+@keyframes datePulse{
+
+    50%{
+        transform:scale(1.06);
+    }
+}
+
+/* ================= PARTICLES ================= */
+
+.particle{
+    position:fixed;
+
+    left:50%;
+    top:50%;
+
+    z-index:150;
+
+    pointer-events:none;
+
+    animation:
+        explosion 1.8s
+        ease-out forwards;
+}
+
+@keyframes explosion{
+
+    to{
+        transform:
+            translate(
+                var(--x),
+                var(--y)
+            )
+            rotate(720deg)
+            scale(0);
+
+        opacity:0;
+    }
+}
+
+/* ================= RINGS ================= */
+
+.ring{
+    position:fixed;
+
+    left:50%;
+    top:50%;
+
+    width:20px;
+    height:20px;
+
+    margin:-10px;
+
+    border:
+        2px solid #ff4f81;
+
+    border-radius:50%;
+
+    z-index:120;
+
+    pointer-events:none;
+
+    animation:
+        expandRing 2s
+        ease-out forwards;
+}
+
+@keyframes expandRing{
+
+    to{
+        width:650px;
+        height:650px;
+
+        margin:-325px;
+
+        opacity:0;
+    }
+}
+
+/* ================= PETALS ================= */
+
+.petal{
+    position:fixed;
+
+    top:-40px;
+
+    z-index:140;
+
+    font-size:22px;
+
+    pointer-events:none;
+
+    animation:
+        fallPetal 6s
+        linear forwards;
+}
+
+@keyframes fallPetal{
+
+    0%{
+        transform:
+            translateY(0)
+            rotate(0);
+
+        opacity:0;
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    100%{
+        transform:
+            translateY(110vh)
+            translateX(120px)
+            rotate(720deg);
+
+        opacity:0;
+    }
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:400px){
+
+    .card{
+        padding:28px 22px;
+    }
+
+    h1{
+        font-size:22px;
+    }
+
+    .names{
+        font-size:24px;
+    }
+
+    .date{
+        font-size:27px;
+    }
+
+    .two-hearts{
+        gap:35px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background">
+    <div class="aurora"></div>
+</div>
+
+<!-- ================= STARS ================= -->
+
+<script>
+
+for(let i=0;i<120;i++){
+
+    const star=document.createElement("div");
+
+    star.className="star";
+
+    star.style.left=
+        Math.random()*100+"vw";
+
+    star.style.top=
+        Math.random()*100+"vh";
+
+    star.style.animationDelay=
+        Math.random()*3+"s";
+
+    document.body.appendChild(star);
+}
+
+</script>
+
+<!-- ================= MAIN ================= -->
+
+<div class="screen">
+
+    <div class="card">
+
+        <div class="heart-container">
+            <div class="heart"></div>
+        </div>
+
+        <h1>
+            Find Your Special Day ❤️
+        </h1>
+
+        <div class="subtitle">
+            ✨ Enter your crush name ✨
+        </div>
+
+        <input
+            id="yourName"
+            type="text"
+            placeholder="Enter your name"
+            autocomplete="off"
+        >
+
+        <input
+            id="crushName"
+            type="text"
+            placeholder="Enter crush name"
+            autocomplete="off"
+        >
+
+        <button onclick="saveData()">
+            💖 DISCOVER OUR DATE 💖
+        </button>
+
+        <p id="message"></p>
+
+    </div>
+
+</div>
+
+<!-- ================= CINEMATIC ================= -->
+
+<div id="cinematic">
+
+    <div
+        class="two-hearts"
+        id="twoHearts">
+
+        <div class="fly-heart left-heart">
+            ❤️
+        </div>
+
+        <div class="fly-heart right-heart">
+            ❤️
+        </div>
+
+    </div>
+
+    <div id="reveal">
+
+        <div class="special">
+            A SPECIAL MOMENT
+        </div>
+
+        <div
+            class="names"
+            id="revealNames">
+        </div>
+
+        <div class="label">
+            YOUR SPECIAL DATE
+        </div>
+
+        <div
+            class="date"
+            id="revealDate">
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= FIREBASE ================= -->
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
+import {
+    getDatabase,
+    ref,
+    push,
+    set
+}
+from "https://www.gstatic.com/firebasejs/12.18.0/firebase-database.js";
+
+
+const firebaseConfig={
+
+    apiKey:
+    "AIzaSyDD57A_Op5dLOkWyfnTCBNoW73KMXCAYWM",
+
+    authDomain:
+    "crushname-8f510.firebaseapp.com",
+
+    databaseURL:
+    "https://crushname-8f510-default-rtdb.firebaseio.com",
+
+    projectId:
+    "crushname-8f510",
+
+    storageBucket:
+    "crushname-8f510.firebasestorage.app",
+
+    messagingSenderId:
+    "1003333499109",
+
+    appId:
+    "1:1003333499109:web:23a762ff1afa1eee24bc0c",
+
+    measurementId:
+    "G-119G3NB3LT"
+};
+
+
+const app=
+    initializeApp(firebaseConfig);
+
+const database=
+    getDatabase(app);
+
+
+/* ================= CREATE CONSISTENT DATE ================= */
+
+function generateConsistentDate(
+    yourName,
+    crushName
+){
+
+    /*
+       Sort the names so:
+
+       Mohan + Anu
+
+       and
+
+       Anu + Mohan
+
+       produce the SAME date.
+    */
+
+    const nameKey=
+        [
+            yourName.toLowerCase().trim(),
+            crushName.toLowerCase().trim()
+        ]
+        .sort()
+        .join("|");
+
+
+    /* Convert names into a number */
+
+    let hash=0;
+
+    for(
+        let i=0;
+        i<nameKey.length;
+        i++
+    ){
+
+        hash=
+            ((hash<<5)-hash)
+            +
+            nameKey.charCodeAt(i);
+
+        hash |= 0;
+    }
+
+
+    hash=Math.abs(hash);
+
+
+    /* Date range */
+
+    const startYear=2015;
+    const endYear=2026;
+
+
+    /* Same pair = same year */
+
+    const year=
+        startYear+
+        (
+            hash %
+            (endYear-startYear+1)
+        );
+
+
+    /* Same pair = same month */
+
+    const month=
+        Math.floor(hash/13)%12;
+
+
+    /* Find days in month */
+
+    const days=
+        new Date(
+            year,
+            month+1,
+            0
+        ).getDate();
+
+
+    /* Same pair = same day */
+
+    const day=
+        (
+            Math.floor(hash/157)
+            %
+            days
+        )+1;
+
+
+    const date=
+        new Date(
+            year,
+            month,
+            day
+        );
+
+
+    return date.toLocaleDateString(
+        "en-IN",
+        {
+            day:"numeric",
+            month:"long",
+            year:"numeric"
+        }
+    );
+}
+
+
+/* ================= SAVE ================= */
+
+window.saveData=function(){
+
+    const yourName=
+        document
+        .getElementById("yourName")
+        .value
+        .trim();
+
+
+    const crushName=
+        document
+        .getElementById("crushName")
+        .value
+        .trim();
+
+
+    const message=
+        document
+        .getElementById("message");
+
+
+    /* Check names */
+
+    if(
+        yourName==="" ||
+        crushName===""
+    ){
+
+        message.innerText=
+            "❤️ Please enter both names";
+
+        message.style.color=
+            "#ff91b1";
+
+        return;
+    }
+
+
+    /* ================= DATE ================= */
+
+    const formattedDate=
+        generateConsistentDate(
+            yourName,
+            crushName
+        );
+
+
+    /* ================= FIREBASE ================= */
+
+    const newData=
+        push(
+            ref(
+                database,
+                "crushEntries"
+            )
+        );
+
+
+    set(
+        newData,
+        {
+
+            yourName:
+                yourName,
+
+            crushName:
+                crushName,
+
+            relationshipDate:
+                formattedDate,
+
+            time:
+                new Date().toISOString()
+
+        }
+
+    )
+
+    .then(()=>{
+
+        message.innerText="";
+
+        startAnimation(
+            yourName,
+            crushName,
+            formattedDate
+        );
+
+    })
+
+    .catch(error=>{
+
+        console.error(error);
+
+        message.innerText=
+            "❌ Could not save information";
+
+    });
+
+};
+
+
+/* ================= ANIMATION ================= */
+
+function startAnimation(
+    yourName,
+    crushName,
+    formattedDate
+){
+
+    const cinematic=
+        document
+        .getElementById("cinematic");
+
+
+    const hearts=
+        document
+        .getElementById("twoHearts");
+
+
+    const reveal=
+        document
+        .getElementById("reveal");
+
+
+    cinematic.classList.add("show");
+
+    hearts.style.display="flex";
+
+    reveal.style.display="none";
+
+
+    /* Reset heart animations */
+
+    const leftHeart=
+        document.querySelector(".left-heart");
+
+    const rightHeart=
+        document.querySelector(".right-heart");
+
+
+    leftHeart.style.animation="none";
+    rightHeart.style.animation="none";
+
+
+    void leftHeart.offsetWidth;
+    void rightHeart.offsetWidth;
+
+
+    leftHeart.style.animation=
+        "leftHeart 1.5s cubic-bezier(.2,.8,.3,1) forwards";
+
+    rightHeart.style.animation=
+        "rightHeart 1.5s cubic-bezier(.2,.8,.3,1) forwards";
+
+
+    setTimeout(()=>{
+
+        hearts.style.display="none";
+
+        reveal.style.display="block";
+
+
+        document
+        .getElementById("revealNames")
+        .innerText=
+            `${yourName} ❤️ ${crushName}`;
+
+
+        document
+        .getElementById("revealDate")
+        .innerText=
+            formattedDate;
+
+
+        createExplosion();
+
+        createRings();
+
+        createPetals();
+
+    },1700);
+
+}
+
+
+/* ================= EXPLOSION ================= */
+
+function createExplosion(){
+
+    const items=[
+        "❤️",
+        "💕",
+        "💖",
+        "💗",
+        "✨",
+        "🌟"
+    ];
+
+
+    for(
+        let i=0;
+        i<100;
+        i++
+    ){
+
+        const particle=
+            document.createElement("div");
+
+
+        particle.className=
+            "particle";
+
+
+        particle.innerText=
+            items[
+                Math.floor(
+                    Math.random()*
+                    items.length
+                )
+            ];
+
+
+        const angle=
+            Math.random()*
+            Math.PI*2;
+
+
+        const distance=
+            100+
+            Math.random()*450;
+
+
+        particle.style.setProperty(
+            "--x",
+            Math.cos(angle)*
+            distance+
+            "px"
+        );
+
+
+        particle.style.setProperty(
+            "--y",
+            Math.sin(angle)*
+            distance+
+            "px"
+        );
+
+
+        document.body
+        .appendChild(particle);
+
+
+        setTimeout(()=>{
+
+            particle.remove();
+
+        },2000);
+
+    }
+
+}
+
+
+/* ================= RINGS ================= */
+
+function createRings(){
+
+    for(
+        let i=0;
+        i<8;
+        i++
+    ){
+
+        setTimeout(()=>{
+
+            const ring=
+                document.createElement("div");
+
+
+            ring.className="ring";
+
+
+            document.body
+            .appendChild(ring);
+
+
+            setTimeout(()=>{
+
+                ring.remove();
+
+            },2000);
+
+        },i*180);
+
+    }
+
+}
+
+
+/* ================= PETALS ================= */
+
+function createPetals(){
+
+    for(
+        let i=0;
+        i<45;
+        i++
+    ){
+
+        setTimeout(()=>{
+
+            const petal=
+                document.createElement("div");
+
+
+            petal.className="petal";
+
+
+            petal.innerText=
+                Math.random()>.5
+                ? "🌹"
+                : "🌸";
+
+
+            petal.style.left=
+                Math.random()*100+
+                "vw";
+
+
+            petal.style.animationDuration=
+                4+
+                Math.random()*5+
+                "s";
+
+
+            document.body
+            .appendChild(petal);
+
+
+            setTimeout(()=>{
+
+                petal.remove();
+
+            },9000);
+
+        },i*100);
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
